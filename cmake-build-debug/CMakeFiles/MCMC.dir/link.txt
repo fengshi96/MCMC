@@ -1,0 +1,1 @@
+/usr/bin/c++  -g   CMakeFiles/MCMC.dir/main.cpp.o  -o MCMC 

@@ -1,0 +1,1 @@
+/usr/bin/c++   -fconcepts -g   CMakeFiles/CPPKIT.dir/main.cpp.o CMakeFiles/CPPKIT.dir/src/Matrix.cpp.o CMakeFiles/CPPKIT.dir/src/Helper.cpp.o CMakeFiles/CPPKIT.dir/src/Vector.cpp.o CMakeFiles/CPPKIT.dir/src/CIsing.cpp.o  -o CPPKIT   -L/opt/OpenBLAS/lib  -Wl,-rpath,/opt/OpenBLAS/lib -lopenblas 

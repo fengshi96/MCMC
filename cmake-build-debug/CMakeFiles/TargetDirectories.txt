@@ -1,0 +1,3 @@
+/Barn/Lab/MCMC/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/Barn/Lab/MCMC/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Barn/Lab/MCMC/cmake-build-debug/CMakeFiles/CPPKIT.dir
