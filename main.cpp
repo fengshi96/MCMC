@@ -4,10 +4,11 @@
 #include "src/visual/Mesh.h"
 
 int main() {
-    CIsing<float> Ising(10,10);
-//    Ising.evolve(500);
+    CIsing<float> Ising(300,300);
+    Ising.update_J(-1);
+    Ising.update_t(1);
     Ising.printl();
-    Ising.stream(800,800);
+    Ising.stream(800,800,10000);
 
 
 }

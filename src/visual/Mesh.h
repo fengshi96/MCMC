@@ -19,10 +19,15 @@ public:
         this -> pos = pos;
     }
 
-    Vertex(Vertex&&) = default;  // enforcing move constructor
 
     Vertex(Vertex& vertex){
         pos = *vertex.GetPos();
+    }
+
+    Vertex(Vertex&& rhs) : pos(rhs.pos) {}  // enforcing move constructor
+    Vertex& operator=(const Vertex& rhs) {
+        pos = rhs.pos;
+        return *this;
     }
 
     inline glm::vec3* GetPos() { return &pos; }

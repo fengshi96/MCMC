@@ -10,6 +10,7 @@
 #include "Display.h"
 #include <glm/glm.hpp>
 #include <vector>
+#include <omp.h>
 
 template<class T>
 class Visual {
@@ -42,12 +43,22 @@ public:
                 }
             }
         }
-
         num2draw = indx.size();
-        vertices.reserve(4*num2draw);
-//        std::cout << "num2draw = " <<  num2draw << std::endl;
 
+
+
+        vertices.reserve(4*num2draw);
+//        vertices.resize(4*num2draw);
+
+//        #pragma omp parallel for num_threads(4) default(none)
         for (int i = 0; i < num2draw; ++i) {
+//            // thread safe
+//            vertices[i*4] = (Vertex(glm::vec3(-1 + indx[i] * pixel_w, -1 + indy[i] * pixel_h, 0)));
+//            vertices[1+i*4] = (Vertex(glm::vec3(-1 + (indx[i] + 1) * pixel_w, -1 + indy[i] * pixel_h, 0)));
+//            vertices[2+i*4] = (Vertex(glm::vec3(-1 + (indx[i] + 1) * pixel_w, -1 + (indy[i] + 1) * pixel_h, 0)));
+//            vertices[3+i*4] = (Vertex(glm::vec3(-1 + indx[i] * pixel_w, -1 + (indy[i] + 1) * pixel_h, 0)));
+
+            // thread-unsafe
             vertices.emplace_back(Vertex(glm::vec3(-1 + indx[i] * pixel_w, -1 + indy[i] * pixel_h, 0)));
             vertices.emplace_back(Vertex(glm::vec3(-1 + (indx[i] + 1) * pixel_w, -1 + indy[i] * pixel_h, 0)));
             vertices.emplace_back(Vertex(glm::vec3(-1 + (indx[i] + 1) * pixel_w, -1 + (indy[i] + 1) * pixel_h, 0)));
@@ -56,10 +67,7 @@ public:
 //            std::cout << "( " << -1 + indx[i] * pixel_w << "," << -1 + indy[i] * pixel_h << ")" << std::endl;
 //            std::cout << "( " << -1 + (indx[i] + 1) * pixel_w << "," <<  -1 + indy[i] * pixel_h << ")" << std::endl;
 //            std::cout << "( " << -1 + (indx[i] + 1) * pixel_w << "," <<  -1 + (indy[i] + 1) * pixel_h << ")" << std::endl;
-//            std::cout << "( " << -1 + indx[i] * pixel_w << "," <<  -1 + (indy[i] + 1) * pixel_h << ")" << std::endl;
-//            std::cout << std::endl;
-//            std::cout << std::endl;
-
+//            std::cout << "( " << -1 + indx[i] * pixel_w << "," <<  -1 + (indy[i] + 1) * pixel_h << ")" << std::endl << std::endl;
         }
 
     }

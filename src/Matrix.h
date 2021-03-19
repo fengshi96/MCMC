@@ -39,15 +39,19 @@ public:
 
     const T& operator()(int i,int j) const {
         //    std::cout << i << " " << j << std::endl;
+#ifdef DEBUG
         assert(i < nrow && j < ncol);
         assert(i+ j * nrow < data_.size());
+#endif
         return data_[i+ j * nrow];
     }
 
     T& operator()(int i, int j) {
         //    std::cout << i << " " << j << std::endl;
+#ifdef DEBUG
         assert(i < nrow && j < ncol);
         assert(i+ j * nrow < data_.size());
+#endif
         return data_[i+ j * nrow];
     }  // caller operator. returns a reference of that element
 

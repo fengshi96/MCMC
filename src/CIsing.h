@@ -63,7 +63,7 @@ public:
     void update_m(T mag) {m = mag;}
     void update_f(T field) {f = field;}
     void update_J(T j) {J = j;}
-    void stream(const int width, const int height);
+    void stream(const int width, const int height, const int evolution_per_frame);
     // void update_all();  // update all attributes after change of configuration
 
 
@@ -77,7 +77,7 @@ private:
 
 // member function definitions
 template<class T>
-void CIsing<T>::stream(const int width, const int height) {
+void CIsing<T>::stream(const int width, const int height, const int evolution_per_frame) {
 
     Display display(width, height, "ShowQuads");
     glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
@@ -86,7 +86,7 @@ void CIsing<T>::stream(const int width, const int height) {
 
     while (!display.IsClosed()) {
         glClear(GL_COLOR_BUFFER_BIT);
-        tryflip();
+        evolve(evolution_per_frame);
         // printl();
         visual.Load();
         visual.Plot();
@@ -149,6 +149,7 @@ T CIsing<T>::energy() {
     /* calculate energy of current configuration  */
     int Nalig = 0;  // number of aligned n.n pairs
     int Nanti = 0;  // number of anti-alighed n.n paris
+
     for (int i = 0; i < h; ++i) {
         for (int j = 0; j < w; ++j) {
             // check two bonds for each site
