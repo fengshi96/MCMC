@@ -2,11 +2,13 @@
 // Created by shifeng on 3/13/21.
 //
 
-#ifndef CPPKIT_CISING_H
-#define CPPKIT_CISING_H
+#ifndef MCMC_CISING_H
+#define MCMC_CISING_H
 #include "Matrix.h"
 #include <cmath>
 #include <cstdlib>
+#include <unistd.h>
+#include "visual/Visual.h"
 
 template<class T>
 class CIsing {
@@ -50,6 +52,7 @@ public:
     }  // returns a reference of that element
 
     bool tryflip();  // flip or not (for M-H method)
+    bool tryclusterflip();
     void evolve(const int nstep);  // number of iterations
 
     T energy();  // calculate energy
@@ -60,6 +63,7 @@ public:
     void update_m(T mag) {m = mag;}
     void update_f(T field) {f = field;}
     void update_J(T j) {J = j;}
+    void stream(const int width, const int height);
     // void update_all();  // update all attributes after change of configuration
 
 
@@ -72,6 +76,25 @@ private:
 };
 
 // member function definitions
+template<class T>
+void CIsing<T>::stream(const int width, const int height) {
+
+    Display display(width, height, "ShowQuads");
+    glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+    Visual<T> visual(Lat);
+    visual.Frame(width,height);
+
+    while (!display.IsClosed()) {
+        glClear(GL_COLOR_BUFFER_BIT);
+        tryflip();
+        // printl();
+        visual.Load();
+        visual.Plot();
+        display.Update();
+    }
+}
+
+
 // no annealing for now
 template<class T>
 void CIsing<T>::evolve(const int nstep) {
@@ -143,4 +166,4 @@ T CIsing<T>::energy() {
     return E;
 }
 
-#endif //CPPKIT_CISING_H
+#endif //MCMC_CISING_H

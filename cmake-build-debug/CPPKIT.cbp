@@ -117,6 +117,18 @@
 		<Unit filename="/Barn/Lab/MCMC/src/Vector.h">
 			<Option target="CPPKIT"/>
 		</Unit>
+		<Unit filename="/Barn/Lab/MCMC/src/visual/Display.cpp">
+			<Option target="CPPKIT"/>
+		</Unit>
+		<Unit filename="/Barn/Lab/MCMC/src/visual/Display.h">
+			<Option target="CPPKIT"/>
+		</Unit>
+		<Unit filename="/Barn/Lab/MCMC/src/visual/Mesh.cpp">
+			<Option target="CPPKIT"/>
+		</Unit>
+		<Unit filename="/Barn/Lab/MCMC/src/visual/Mesh.h">
+			<Option target="CPPKIT"/>
+		</Unit>
 		<Unit filename="/Barn/Lab/MCMC/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>

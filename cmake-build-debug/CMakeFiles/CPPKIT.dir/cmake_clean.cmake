@@ -4,6 +4,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/CPPKIT.dir/src/Helper.cpp.o"
   "CMakeFiles/CPPKIT.dir/src/Matrix.cpp.o"
   "CMakeFiles/CPPKIT.dir/src/Vector.cpp.o"
+  "CMakeFiles/CPPKIT.dir/src/visual/Display.cpp.o"
+  "CMakeFiles/CPPKIT.dir/src/visual/Mesh.cpp.o"
   "CPPKIT"
   "CPPKIT.pdb"
 )

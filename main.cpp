@@ -1,12 +1,13 @@
 #include <iostream>
 #include "src/CIsing.h"
+#include "src/visual/Visual.h"
+#include "src/visual/Mesh.h"
 
 int main() {
-    CIsing<float> Ising(5,5);
-    // Ising.update_J(1);
-    int Niter = 500;
-    Ising.evolve(Niter);
-
+    CIsing<float> Ising(10,10);
+//    Ising.evolve(500);
     Ising.printl();
-    Ising.prints();
+    Ising.stream(800,800);
+
+
 }

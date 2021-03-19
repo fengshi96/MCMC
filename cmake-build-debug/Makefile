@@ -76,17 +76,6 @@ CMAKE_BINARY_DIR = /Barn/Lab/MCMC/cmake-build-debug
 #=============================================================================
 # Targets provided globally by CMake.
 
-# Special rule for the target rebuild_cache
-rebuild_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/home/shifeng/IDE/clion-2020.2.5/bin/cmake/linux/bin/cmake --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
-.PHONY : rebuild_cache
-
-# Special rule for the target rebuild_cache
-rebuild_cache/fast: rebuild_cache
-
-.PHONY : rebuild_cache/fast
-
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
@@ -97,6 +86,17 @@ edit_cache:
 edit_cache/fast: edit_cache
 
 .PHONY : edit_cache/fast
+
+# Special rule for the target rebuild_cache
+rebuild_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
+	/home/shifeng/IDE/clion-2020.2.5/bin/cmake/linux/bin/cmake --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+.PHONY : rebuild_cache
+
+# Special rule for the target rebuild_cache
+rebuild_cache/fast: rebuild_cache
+
+.PHONY : rebuild_cache/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -131,17 +131,17 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named CPPKIT
+# Target rules for targets named MCMC
 
 # Build rule for target.
-CPPKIT: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CPPKIT
-.PHONY : CPPKIT
+MCMC: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 MCMC
+.PHONY : MCMC
 
 # fast build rule for target.
-CPPKIT/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CPPKIT.dir/build.make CMakeFiles/CPPKIT.dir/build
-.PHONY : CPPKIT/fast
+MCMC/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MCMC.dir/build.make CMakeFiles/MCMC.dir/build
+.PHONY : MCMC/fast
 
 main.o: main.cpp.o
 
@@ -149,7 +149,7 @@ main.o: main.cpp.o
 
 # target to build an object file
 main.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CPPKIT.dir/build.make CMakeFiles/CPPKIT.dir/main.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MCMC.dir/build.make CMakeFiles/MCMC.dir/main.cpp.o
 .PHONY : main.cpp.o
 
 main.i: main.cpp.i
@@ -158,7 +158,7 @@ main.i: main.cpp.i
 
 # target to preprocess a source file
 main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CPPKIT.dir/build.make CMakeFiles/CPPKIT.dir/main.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MCMC.dir/build.make CMakeFiles/MCMC.dir/main.cpp.i
 .PHONY : main.cpp.i
 
 main.s: main.cpp.s
@@ -167,7 +167,7 @@ main.s: main.cpp.s
 
 # target to generate assembly for a file
 main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CPPKIT.dir/build.make CMakeFiles/CPPKIT.dir/main.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MCMC.dir/build.make CMakeFiles/MCMC.dir/main.cpp.s
 .PHONY : main.cpp.s
 
 src/CIsing.o: src/CIsing.cpp.o
@@ -176,7 +176,7 @@ src/CIsing.o: src/CIsing.cpp.o
 
 # target to build an object file
 src/CIsing.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CPPKIT.dir/build.make CMakeFiles/CPPKIT.dir/src/CIsing.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MCMC.dir/build.make CMakeFiles/MCMC.dir/src/CIsing.cpp.o
 .PHONY : src/CIsing.cpp.o
 
 src/CIsing.i: src/CIsing.cpp.i
@@ -185,7 +185,7 @@ src/CIsing.i: src/CIsing.cpp.i
 
 # target to preprocess a source file
 src/CIsing.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CPPKIT.dir/build.make CMakeFiles/CPPKIT.dir/src/CIsing.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MCMC.dir/build.make CMakeFiles/MCMC.dir/src/CIsing.cpp.i
 .PHONY : src/CIsing.cpp.i
 
 src/CIsing.s: src/CIsing.cpp.s
@@ -194,7 +194,7 @@ src/CIsing.s: src/CIsing.cpp.s
 
 # target to generate assembly for a file
 src/CIsing.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CPPKIT.dir/build.make CMakeFiles/CPPKIT.dir/src/CIsing.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MCMC.dir/build.make CMakeFiles/MCMC.dir/src/CIsing.cpp.s
 .PHONY : src/CIsing.cpp.s
 
 src/Helper.o: src/Helper.cpp.o
@@ -203,7 +203,7 @@ src/Helper.o: src/Helper.cpp.o
 
 # target to build an object file
 src/Helper.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CPPKIT.dir/build.make CMakeFiles/CPPKIT.dir/src/Helper.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MCMC.dir/build.make CMakeFiles/MCMC.dir/src/Helper.cpp.o
 .PHONY : src/Helper.cpp.o
 
 src/Helper.i: src/Helper.cpp.i
@@ -212,7 +212,7 @@ src/Helper.i: src/Helper.cpp.i
 
 # target to preprocess a source file
 src/Helper.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CPPKIT.dir/build.make CMakeFiles/CPPKIT.dir/src/Helper.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MCMC.dir/build.make CMakeFiles/MCMC.dir/src/Helper.cpp.i
 .PHONY : src/Helper.cpp.i
 
 src/Helper.s: src/Helper.cpp.s
@@ -221,7 +221,7 @@ src/Helper.s: src/Helper.cpp.s
 
 # target to generate assembly for a file
 src/Helper.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CPPKIT.dir/build.make CMakeFiles/CPPKIT.dir/src/Helper.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MCMC.dir/build.make CMakeFiles/MCMC.dir/src/Helper.cpp.s
 .PHONY : src/Helper.cpp.s
 
 src/Matrix.o: src/Matrix.cpp.o
@@ -230,7 +230,7 @@ src/Matrix.o: src/Matrix.cpp.o
 
 # target to build an object file
 src/Matrix.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CPPKIT.dir/build.make CMakeFiles/CPPKIT.dir/src/Matrix.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MCMC.dir/build.make CMakeFiles/MCMC.dir/src/Matrix.cpp.o
 .PHONY : src/Matrix.cpp.o
 
 src/Matrix.i: src/Matrix.cpp.i
@@ -239,7 +239,7 @@ src/Matrix.i: src/Matrix.cpp.i
 
 # target to preprocess a source file
 src/Matrix.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CPPKIT.dir/build.make CMakeFiles/CPPKIT.dir/src/Matrix.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MCMC.dir/build.make CMakeFiles/MCMC.dir/src/Matrix.cpp.i
 .PHONY : src/Matrix.cpp.i
 
 src/Matrix.s: src/Matrix.cpp.s
@@ -248,7 +248,7 @@ src/Matrix.s: src/Matrix.cpp.s
 
 # target to generate assembly for a file
 src/Matrix.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CPPKIT.dir/build.make CMakeFiles/CPPKIT.dir/src/Matrix.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MCMC.dir/build.make CMakeFiles/MCMC.dir/src/Matrix.cpp.s
 .PHONY : src/Matrix.cpp.s
 
 src/Vector.o: src/Vector.cpp.o
@@ -257,7 +257,7 @@ src/Vector.o: src/Vector.cpp.o
 
 # target to build an object file
 src/Vector.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CPPKIT.dir/build.make CMakeFiles/CPPKIT.dir/src/Vector.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MCMC.dir/build.make CMakeFiles/MCMC.dir/src/Vector.cpp.o
 .PHONY : src/Vector.cpp.o
 
 src/Vector.i: src/Vector.cpp.i
@@ -266,7 +266,7 @@ src/Vector.i: src/Vector.cpp.i
 
 # target to preprocess a source file
 src/Vector.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CPPKIT.dir/build.make CMakeFiles/CPPKIT.dir/src/Vector.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MCMC.dir/build.make CMakeFiles/MCMC.dir/src/Vector.cpp.i
 .PHONY : src/Vector.cpp.i
 
 src/Vector.s: src/Vector.cpp.s
@@ -275,8 +275,89 @@ src/Vector.s: src/Vector.cpp.s
 
 # target to generate assembly for a file
 src/Vector.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CPPKIT.dir/build.make CMakeFiles/CPPKIT.dir/src/Vector.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MCMC.dir/build.make CMakeFiles/MCMC.dir/src/Vector.cpp.s
 .PHONY : src/Vector.cpp.s
+
+src/visual/Display.o: src/visual/Display.cpp.o
+
+.PHONY : src/visual/Display.o
+
+# target to build an object file
+src/visual/Display.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MCMC.dir/build.make CMakeFiles/MCMC.dir/src/visual/Display.cpp.o
+.PHONY : src/visual/Display.cpp.o
+
+src/visual/Display.i: src/visual/Display.cpp.i
+
+.PHONY : src/visual/Display.i
+
+# target to preprocess a source file
+src/visual/Display.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MCMC.dir/build.make CMakeFiles/MCMC.dir/src/visual/Display.cpp.i
+.PHONY : src/visual/Display.cpp.i
+
+src/visual/Display.s: src/visual/Display.cpp.s
+
+.PHONY : src/visual/Display.s
+
+# target to generate assembly for a file
+src/visual/Display.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MCMC.dir/build.make CMakeFiles/MCMC.dir/src/visual/Display.cpp.s
+.PHONY : src/visual/Display.cpp.s
+
+src/visual/Mesh.o: src/visual/Mesh.cpp.o
+
+.PHONY : src/visual/Mesh.o
+
+# target to build an object file
+src/visual/Mesh.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MCMC.dir/build.make CMakeFiles/MCMC.dir/src/visual/Mesh.cpp.o
+.PHONY : src/visual/Mesh.cpp.o
+
+src/visual/Mesh.i: src/visual/Mesh.cpp.i
+
+.PHONY : src/visual/Mesh.i
+
+# target to preprocess a source file
+src/visual/Mesh.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MCMC.dir/build.make CMakeFiles/MCMC.dir/src/visual/Mesh.cpp.i
+.PHONY : src/visual/Mesh.cpp.i
+
+src/visual/Mesh.s: src/visual/Mesh.cpp.s
+
+.PHONY : src/visual/Mesh.s
+
+# target to generate assembly for a file
+src/visual/Mesh.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MCMC.dir/build.make CMakeFiles/MCMC.dir/src/visual/Mesh.cpp.s
+.PHONY : src/visual/Mesh.cpp.s
+
+src/visual/Visual.o: src/visual/Visual.cpp.o
+
+.PHONY : src/visual/Visual.o
+
+# target to build an object file
+src/visual/Visual.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MCMC.dir/build.make CMakeFiles/MCMC.dir/src/visual/Visual.cpp.o
+.PHONY : src/visual/Visual.cpp.o
+
+src/visual/Visual.i: src/visual/Visual.cpp.i
+
+.PHONY : src/visual/Visual.i
+
+# target to preprocess a source file
+src/visual/Visual.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MCMC.dir/build.make CMakeFiles/MCMC.dir/src/visual/Visual.cpp.i
+.PHONY : src/visual/Visual.cpp.i
+
+src/visual/Visual.s: src/visual/Visual.cpp.s
+
+.PHONY : src/visual/Visual.s
+
+# target to generate assembly for a file
+src/visual/Visual.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MCMC.dir/build.make CMakeFiles/MCMC.dir/src/visual/Visual.cpp.s
+.PHONY : src/visual/Visual.cpp.s
 
 # Help Target
 help:
@@ -286,7 +367,7 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... CPPKIT"
+	@echo "... MCMC"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
@@ -302,6 +383,15 @@ help:
 	@echo "... src/Vector.o"
 	@echo "... src/Vector.i"
 	@echo "... src/Vector.s"
+	@echo "... src/visual/Display.o"
+	@echo "... src/visual/Display.i"
+	@echo "... src/visual/Display.s"
+	@echo "... src/visual/Mesh.o"
+	@echo "... src/visual/Mesh.i"
+	@echo "... src/visual/Mesh.s"
+	@echo "... src/visual/Visual.o"
+	@echo "... src/visual/Visual.i"
+	@echo "... src/visual/Visual.s"
 .PHONY : help
 
 

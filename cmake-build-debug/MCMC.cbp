@@ -44,6 +44,7 @@
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
+					<Add directory="/opt/OpenBLAS/include"/>
 					<Add directory="/usr/include/c++/9"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
 					<Add directory="/usr/include/c++/9/backward"/>
@@ -66,6 +67,7 @@
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
+					<Add directory="/opt/OpenBLAS/include"/>
 					<Add directory="/usr/include/c++/9"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
 					<Add directory="/usr/include/c++/9/backward"/>
@@ -83,6 +85,54 @@
 			</Target>
 		</Build>
 		<Unit filename="/Barn/Lab/MCMC/main.cpp">
+			<Option target="MCMC"/>
+		</Unit>
+		<Unit filename="/Barn/Lab/MCMC/src/BLAS.h">
+			<Option target="MCMC"/>
+		</Unit>
+		<Unit filename="/Barn/Lab/MCMC/src/CIsing.cpp">
+			<Option target="MCMC"/>
+		</Unit>
+		<Unit filename="/Barn/Lab/MCMC/src/CIsing.h">
+			<Option target="MCMC"/>
+		</Unit>
+		<Unit filename="/Barn/Lab/MCMC/src/Helper.cpp">
+			<Option target="MCMC"/>
+		</Unit>
+		<Unit filename="/Barn/Lab/MCMC/src/Helper.h">
+			<Option target="MCMC"/>
+		</Unit>
+		<Unit filename="/Barn/Lab/MCMC/src/LAPACK.h">
+			<Option target="MCMC"/>
+		</Unit>
+		<Unit filename="/Barn/Lab/MCMC/src/Matrix.cpp">
+			<Option target="MCMC"/>
+		</Unit>
+		<Unit filename="/Barn/Lab/MCMC/src/Matrix.h">
+			<Option target="MCMC"/>
+		</Unit>
+		<Unit filename="/Barn/Lab/MCMC/src/Vector.cpp">
+			<Option target="MCMC"/>
+		</Unit>
+		<Unit filename="/Barn/Lab/MCMC/src/Vector.h">
+			<Option target="MCMC"/>
+		</Unit>
+		<Unit filename="/Barn/Lab/MCMC/src/visual/Display.cpp">
+			<Option target="MCMC"/>
+		</Unit>
+		<Unit filename="/Barn/Lab/MCMC/src/visual/Display.h">
+			<Option target="MCMC"/>
+		</Unit>
+		<Unit filename="/Barn/Lab/MCMC/src/visual/Mesh.cpp">
+			<Option target="MCMC"/>
+		</Unit>
+		<Unit filename="/Barn/Lab/MCMC/src/visual/Mesh.h">
+			<Option target="MCMC"/>
+		</Unit>
+		<Unit filename="/Barn/Lab/MCMC/src/visual/Visual.cpp">
+			<Option target="MCMC"/>
+		</Unit>
+		<Unit filename="/Barn/Lab/MCMC/src/visual/Visual.h">
 			<Option target="MCMC"/>
 		</Unit>
 		<Unit filename="/Barn/Lab/MCMC/CMakeLists.txt">

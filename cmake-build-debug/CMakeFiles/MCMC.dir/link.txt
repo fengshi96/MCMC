@@ -1,1 +1,1 @@
-/usr/bin/c++  -g   CMakeFiles/MCMC.dir/main.cpp.o  -o MCMC 
+/usr/bin/c++   -fconcepts -g   CMakeFiles/MCMC.dir/main.cpp.o CMakeFiles/MCMC.dir/src/Matrix.cpp.o CMakeFiles/MCMC.dir/src/Helper.cpp.o CMakeFiles/MCMC.dir/src/Vector.cpp.o CMakeFiles/MCMC.dir/src/CIsing.cpp.o CMakeFiles/MCMC.dir/src/visual/Mesh.cpp.o CMakeFiles/MCMC.dir/src/visual/Display.cpp.o CMakeFiles/MCMC.dir/src/visual/Visual.cpp.o  -o MCMC   -L/opt/OpenBLAS/lib  -Wl,-rpath,/opt/OpenBLAS/lib -lopenblas -lSDL2 -lGL -lGLEW 
