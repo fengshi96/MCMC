@@ -5,6 +5,8 @@
 #include "Mesh.h"
 #include <vector>
 
+Mesh::Mesh() : m_vertexArrayBuffers{0}, m_vertexArrayObject(0), m_drawCount(0) {}
+
 Mesh::Mesh(Vertex* vertices, unsigned int numVertices){
     m_drawCount = numVertices;
 
@@ -30,8 +32,26 @@ Mesh::Mesh(Vertex* vertices, unsigned int numVertices){
     glBindVertexArray(0);  // unmount the vertex object from GL machine once done.
 }
 
+Mesh::Mesh(const Mesh& other) {
+    // FIX
+    m_drawCount = other.m_drawCount;
+    m_vertexArrayObject = other.m_vertexArrayObject;
+
+    for (GLuint i = 0; i < NUM_BUFFERS; ++i)
+        m_vertexArrayBuffers[i] = other.m_vertexArrayBuffers[i];
+}
+
+void Mesh::operator=(const Mesh& other) {
+    m_drawCount = other.m_drawCount;
+    m_vertexArrayObject = other.m_vertexArrayObject;
+
+    for (GLuint i = 0; i < NUM_BUFFERS; ++i)
+        m_vertexArrayBuffers[i] = other.m_vertexArrayBuffers[i];
+}
+
 Mesh::~Mesh(){
     glDeleteVertexArrays(1, &m_vertexArrayObject);
+    glDeleteBuffers(NUM_BUFFERS, m_vertexArrayBuffers);
 }
 
 void Mesh::Draw() {

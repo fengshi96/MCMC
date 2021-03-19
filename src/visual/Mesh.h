@@ -39,14 +39,16 @@ private:
 // class of mesh
 class Mesh {
 public:
+    Mesh();
     Mesh(Vertex* vertices, unsigned int numVertices);
+    Mesh(const Mesh& other);
+    // Mesh(Mesh&& rhs);
+    void operator=(const Mesh& other);
     void Draw();  // take the mesh and draw with GPU (drop into pipline and make into image)
     void Draw_quads();
     virtual ~Mesh();
 
 private:
-    Mesh(const Mesh& other);
-    void operator=(const Mesh& other);
 
     // user-defined data type that consists of integral constants
     enum {

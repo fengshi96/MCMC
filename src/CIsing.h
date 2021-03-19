@@ -63,6 +63,8 @@ public:
     void update_m(T mag) {m = mag;}
     void update_f(T field) {f = field;}
     void update_J(T j) {J = j;}
+
+    void show(const int width, const int height);
     void stream(const int width, const int height, const int evolution_per_frame);
     // void update_all();  // update all attributes after change of configuration
 
@@ -76,6 +78,21 @@ private:
 };
 
 // member function definitions
+template<class T>
+void CIsing<T>::show(const int width, const int height) {
+    Display display(width, height, "ShowQuads");
+    glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+    Visual<T> visual(Lat);
+    visual.Frame(width,height);
+    visual.Load();
+
+    while (!display.IsClosed()) {
+        glClear(GL_COLOR_BUFFER_BIT);
+        visual.Plot();
+        display.Update();
+    }
+}
+
 template<class T>
 void CIsing<T>::stream(const int width, const int height, const int evolution_per_frame) {
 
