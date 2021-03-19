@@ -5,11 +5,11 @@
 #include "src/visual/Display.h"
 
 int main() {
-    CIsing<float> Ising(300,300);
-    Ising.update_J(-1);
+    CIsing<float> Ising(130,130);
+    Ising.update_J(1);
     Ising.update_t(1);
     Ising.printl();
-    Ising.stream(800,800,8000);
+    Ising.stream(960,960,8000);
 
 
 
