@@ -26,6 +26,7 @@ public:
 
 // move constructor. Needed in manipulations of std::vector<Vertex>
     Vertex(Vertex&& rhs) : pos(rhs.pos) {}
+
 //    Vertex& operator=(const Vertex& rhs) {
 //        pos = rhs.pos;
 //        return *this;
