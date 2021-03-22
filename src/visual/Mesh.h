@@ -24,11 +24,12 @@ public:
         pos = *vertex.GetPos();
     }
 
-    Vertex(Vertex&& rhs) : pos(rhs.pos) {}  // enforcing move constructor
-    Vertex& operator=(const Vertex& rhs) {
-        pos = rhs.pos;
-        return *this;
-    }
+// move constructor. Needed in manipulations of std::vector<Vertex>
+    Vertex(Vertex&& rhs) : pos(rhs.pos) {}
+//    Vertex& operator=(const Vertex& rhs) {
+//        pos = rhs.pos;
+//        return *this;
+//    }
 
     inline glm::vec3* GetPos() { return &pos; }
 private:

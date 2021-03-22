@@ -5,12 +5,12 @@
 #include "src/visual/Display.h"
 
 int main() {
-    CIsing<float> Ising(130,130);
-    Ising.update_J(1);
+    CIsing<float> Ising(200,200);
+    Ising.update_J(-1);
     Ising.update_t(1);
     Ising.printl();
-    Ising.stream(960,960,8000);
+    Ising.stream(600,600,4000);
 
-
+    std::cout << .3*8 << std::endl;
 
 }
